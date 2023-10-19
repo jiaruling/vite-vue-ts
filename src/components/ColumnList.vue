@@ -21,11 +21,12 @@
 
 <script lang="ts" setup>
   import { computed, PropType } from "vue";
+  import { getImageUrl } from "/@/hooks/imageUrl";
 
   export interface ColumnProps {
     id: number;
     title: string;
-    avatar: string;
+    avatar?: string;
     description: string;
   }
 
@@ -44,7 +45,7 @@
   const columnList = computed(() => {
     return props.list.map((column) => {
       if (!column.avatar) {
-        column.avatar = require("@/assets/column.jpg");
+        column.avatar = getImageUrl(`assets/column.jpg`);
       }
       return column;
     });
