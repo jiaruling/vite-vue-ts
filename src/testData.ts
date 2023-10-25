@@ -1,4 +1,4 @@
-import { ColumnProps } from "./components/ColumnList.vue";
+import { ColumnProps, PostProps } from "/@/define";
 
 export const testData: ColumnProps[] = [
   {
@@ -28,3 +28,5 @@ export const testData: ColumnProps[] = [
       "http://vue-maker.oss-cn-hangzhou.aliyuncs.com/vue-marker/5ee22dd58b3c4520912b9470.jpg?x-oss-process=image/resize,m_pad,h_100,w_100",
   },
 ];
+
+export const testPosts: PostProps[] = [];

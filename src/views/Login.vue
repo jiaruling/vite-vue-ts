@@ -27,13 +27,16 @@
 <script lang="ts" setup>
   import { ref } from "vue";
   import { useRouter } from "vue-router";
+  import { useStore } from "vuex";
   import ValidateForm from "../components/ValidateForm.vue";
   import ValidateInput, { RulesProp } from "../components/ValidateInput.vue";
+  import { GlobalDataProps } from "../define";
 
   defineOptions({
     name: "Login",
   });
 
+  const store = useStore<GlobalDataProps>();
   const router = useRouter();
   const emailVal = ref("");
   const emailRules: RulesProp = [
@@ -47,6 +50,7 @@
   const onFormSubmit = (result: boolean) => {
     console.log("result", result);
     if (result) {
+      store.commit("login");
       router.push({ name: "home" });
     }
   };

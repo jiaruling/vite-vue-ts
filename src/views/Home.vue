@@ -15,12 +15,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from "vue";
+  import { computed } from "vue";
+  import { useStore } from "vuex";
   import ColumnList from "../components/ColumnList.vue";
-  import { testData } from "../testData";
+  import { GlobalDataProps } from "../define";
 
   defineOptions({
     name: "Home",
   });
-  const list = ref(testData);
+  const store = useStore<GlobalDataProps>();
+  const list = computed(() => store.state.columns);
 </script>

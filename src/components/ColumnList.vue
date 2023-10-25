@@ -26,14 +26,8 @@
 
 <script lang="ts" setup>
   import { computed, PropType } from "vue";
+  import { ColumnProps } from "/@/define";
   import { getImageUrl } from "/@/hooks/imageUrl";
-
-  export interface ColumnProps {
-    id: number;
-    title: string;
-    avatar?: string;
-    description: string;
-  }
 
   defineOptions({
     name: "ColumnList",

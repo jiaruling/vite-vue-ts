@@ -7,12 +7,13 @@
 
 <script setup lang="ts">
   import "bootstrap/dist/css/bootstrap.min.css";
-  import GlobalHeader, { UserProps } from "./components/GlobalHeader.vue";
+  import { computed } from "vue";
+  import { useStore } from "vuex";
+  import GlobalHeader from "./components/GlobalHeader.vue";
+  import { GlobalDataProps } from "/@/define";
 
-  const user: UserProps = {
-    isLogin: false,
-    name: "wiki",
-  };
+  const store = useStore<GlobalDataProps>();
+  const user = computed(() => store.state.user);
 </script>
 
 <style scoped></style>
